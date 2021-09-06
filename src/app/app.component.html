@@ -1,2 +1,5 @@
 <app-navbar></app-navbar>
-<h1>Bem vindo ao blog</h1>
+
+<h1 *ngIf="router.url == '/'">Bem vindo ao blog</h1>
+
+<router-outlet></router-outlet>

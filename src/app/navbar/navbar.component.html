@@ -1,10 +1,18 @@
 <h1>navbar works!</h1>
 <ul>
-    <li>Home</li>
-    <li>Postagem</li>
-    <li>Listagem</li>
-    <li>ID</li>
-    <li>Título</li>
-    <li>Tags</li>
-    <li>Páginas</li>
+    <li>
+        <h1 [routerLink]="['/']" routerLinkActive="router-link-active" >Home</h1>
+    </li>
+    <li>
+        <h1 [routerLink]="['/new']">Postagem</h1>
+    </li>
+    <li>
+        <h1 [routerLink]="['/new/pages']">Noticias</h1>
+    </li>
+    <li>
+        <h1 [routerLink]="['/new/title']">Pesquisa Por Título</h1>
+    </li>
+    <li>
+        <h1 [routerLink]="['/new/tag']">Pesquisa Por Tags</h1>
+    </li>
 </ul>
