@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,23 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
-  constructor(public router: Router) {}
+  url: String = "http://localhost:8080/";
 
-  ngOnInit(): void {
+  title = '';
 
+  constructor(public router: Router, private appService: AppService) {}
+
+  ngOnInit() {
+    this.appService.getWelcomeMessage(this.url).subscribe(
+      response => {
+        if (response['message'] === "Welcome!") {
+          this.title = "Bem Vindo Ao Blog";
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
-  title = 'frontend-blog-angular';
 }

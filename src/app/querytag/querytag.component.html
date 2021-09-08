@@ -1,4 +1,10 @@
 <a>querytag works!</a>
 
+<ul>
+    <li *ngFor="let new of news;">
+        <h2>Conteúdo:</h2>
+        {{new.content}}
+    </li>
+</ul>
 
 <router-outlet></router-outlet>

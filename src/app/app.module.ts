@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { PostnewsComponent } from './postnews/postnews.component';
@@ -11,7 +13,6 @@ import { QuerytagComponent } from './querytag/querytag.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { NewsupdateComponent } from './newsupdate/newsupdate.component';
-import { NewsformComponent } from './newsform/newsform.component';
 import { ContentresumeComponent } from './contentresume/contentresume.component';
 
 @NgModule({
@@ -24,12 +25,13 @@ import { ContentresumeComponent } from './contentresume/contentresume.component'
     SearchtytleComponent,
     QuerytagComponent,
     NewsupdateComponent,
-    NewsformComponent,
     ContentresumeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
