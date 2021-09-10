@@ -18,6 +18,9 @@ export class NewsupdateComponent implements OnInit {
   tagList:Array<String> = [];
   listObjectTags: Array<Object> = [];
 
+  sucess: Boolean = false;
+  erro: Boolean = false;
+
   date: String = new Date().toISOString();
 
   addTag () {
@@ -71,10 +74,30 @@ export class NewsupdateComponent implements OnInit {
 
   onSubmit(): void {
     this.generateArrayTags();
-
+    document.getElementById("loading").style.display = "inline";
+    
     this.newUpdateService.updateNew(this.urlUpdate+this.idNew+"/update", this.new).subscribe(
-      response => console.log(response)
+
+      value => {
+        if (value !== null) {
+          this.sucess = true;
+          setTimeout(() => this.reload(), 2000);
+        }
+        console.log(value);
+        document.getElementById("loading").style.display = "none";
+      },
+      error => {
+        if (error['status'] === 500) {
+          this.erro = true;
+          setTimeout(() => this.reload(), 2000);
+        }
+        console.log(error);
+        document.getElementById("loading").style.display = "none";
+      }
     );
+  }
+  reload(): void {
+    window.location.reload();
   }
 
 }

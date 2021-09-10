@@ -12,6 +12,14 @@
             </div>
             
             <h2>Itens Resumidos</h2>
+
+            <div id="loading" style="display: none">
+                <img src="https://media.giphy.com/media/xTkcEQACH24SMPxIQg/giphy.gif" style="width:150px;height:150px;" />
+            </div>
+
+            <div class="alert alert-danger" role="alert" *ngIf="erro === true">
+                Não Foi Possivel Encontra As Noticias!
+            </div>
             
             <div class="list-group">
                 <a href="" *ngFor="let new of news;" class="list-group-item list-group-item-action" aria-current="true">

@@ -25,6 +25,17 @@
             <div class="mb-3">
                 <label for="cnt" class="form-label">Conteúdo: </label>
                 <textarea name="ntxt" id="idt" cols="30" rows="10" [(ngModel)]="new.content" class="form-control"></textarea>
+
+                <div id="loading" style="display: none">
+                    <img src="https://media.giphy.com/media/3y0oCOkdKKRi0/giphy.gif" style="width:50px;height:50px;" />
+                </div>
+
+                <div class="alert alert-success" role="alert" *ngIf="sucess === true">
+                    Noticia Atualizada Com Sucesso!
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="erro === true">
+                    Não Foi Possivel Atualizar A Noticia!
+                </div>
             </div>
         
             <button type="submit" (click)="onSubmit()" class="btn btn-primary">Atualizar Noticia</button>

@@ -15,15 +15,28 @@ export class SearchtytleComponent implements OnInit {
 
   news = [];
 
+  erro = false;
+
   constructor(public router: Router, private searchTitle: SearchtytleService) {}
 
   ngOnInit() {}
 
   search = () => {
+    document.getElementById("loading").style.display = "inline";
     this.searchTitle.searchNewTitle(this.url, this.title).subscribe(
       response => {
-        this.news = response,
-        console.log(this.news)
+        this.news = response;
+        console.log(this.news);
+        document.getElementById("loading").style.display = "none";
+        if (response.length === 0) {
+          this.erro = true;
+        }
+      },
+      error => {
+        if (error) {
+          document.getElementById("loading").style.display = "none";
+          this.erro = true;
+        }
       }
     );
   }

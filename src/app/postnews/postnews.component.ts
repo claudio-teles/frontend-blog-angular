@@ -1,6 +1,5 @@
-import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from "@angular/router";
+import { Router } from "@angular/router";
 import { PostnewsService } from './postnews.service';
 
 @Component({
@@ -50,21 +49,30 @@ export class PostnewsComponent implements OnInit {
     
   }
 
+  reload() {
+    window.location.reload();
+  }
+
   onSubmit() {
     this.generateArrayTags();
+    document.getElementById("loading").style.display = "inline";
 
     this.postNew.sendNew(this.url, this.new).subscribe(
       value => {
-        if (value['idNew'] !== null) {
+        if (value !== null) {
           this.sucess = true;
+          setTimeout(() => this.reload(), 2000);
         }
-        console.log(value)
+        console.log(value);
+        document.getElementById("loading").style.display = "none";
       },
       error => {
         if (error['status'] === 400) {
           this.erro = true;
+          setTimeout(() => this.reload(), 2000);
         }
-        console.log(error)
+        console.log(error);
+        document.getElementById("loading").style.display = "none";
       }
     );
   }

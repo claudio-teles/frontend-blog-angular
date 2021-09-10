@@ -15,6 +15,8 @@ export class QuerytagComponent implements OnInit {
   listTags = [];
   news = [];
 
+  erro = false;
+
   constructor(public router: Router, private queryTag: QuerytagService) {}
 
   ngOnInit(): void {}
@@ -25,6 +27,7 @@ export class QuerytagComponent implements OnInit {
   }
 
   search() {
+    document.getElementById("loading").style.display = "inline";
     for (let i = 0; i < this.listTags.length; i++) {
       this.tags += (this.listTags[i] + ",")
     }
@@ -33,6 +36,10 @@ export class QuerytagComponent implements OnInit {
       response => {
         this.news = response;
         console.log(this.news);
+        document.getElementById("loading").style.display = "none";
+        if (response.length == 0) {
+          this.erro = true;
+        }
       }
     );
   }

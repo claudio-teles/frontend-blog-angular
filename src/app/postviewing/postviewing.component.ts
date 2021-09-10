@@ -23,11 +23,13 @@ export class PostviewingComponent implements OnInit {
     ) {}
 
   advanced = () => {
+    document.getElementById("loading").style.display = "inline";
     this.start++;
     this.listPage(this.start.toString(), this.quantityOfItens.toString());
   }
 
   goBack = () => {
+    document.getElementById("loading").style.display = "inline";
     this.start--;
     this.listPage(this.start.toString(), this.quantityOfItens.toString());
   }
@@ -38,7 +40,8 @@ export class PostviewingComponent implements OnInit {
     ).subscribe(
       response => {
         this.news = response,
-        console.log(this.news)
+        console.log(this.news);
+        document.getElementById("loading").style.display = "none";
       }
     );
   }

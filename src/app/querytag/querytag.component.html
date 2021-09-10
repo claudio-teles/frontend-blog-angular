@@ -19,8 +19,16 @@
                 <button id="add-tag" (click)="addTag()" class="btn btn-primary">Adicionar Tag</button> <br>
                 <button id="pesquisar" (click)="search()" class="btn btn-primary">Pesquisar</button>
             </div>
+
+            <div id="loading" style="display: none">
+                <img src="https://media.giphy.com/media/xTkcEQACH24SMPxIQg/giphy.gif" style="width:150px;height:150px;" />
+            </div>
             
             <h2>Itens Resumidos</h2>
+
+            <div class="alert alert-danger" role="alert" *ngIf="erro !== false">
+                Não Foi Possivel Encontra As Noticias!
+            </div>
             
             <ul class="list-group">
                 <li *ngFor="let new of news;" class="list-group-item d-flex justify-content-between align-items-center">
