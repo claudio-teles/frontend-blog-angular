@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContentresumeComponent } from './contentresume.component';
+import { DeletenewComponent } from './deletenew.component';
 
-describe('ContentresumeComponent', () => {
-  let component: ContentresumeComponent;
-  let fixture: ComponentFixture<ContentresumeComponent>;
+describe('DeletenewComponent', () => {
+  let component: DeletenewComponent;
+  let fixture: ComponentFixture<DeletenewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ContentresumeComponent ]
+      declarations: [ DeletenewComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContentresumeComponent);
+    fixture = TestBed.createComponent(DeletenewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,19 @@
+li {
+    list-style-type: none;
+}
+
+div#inf-pag {
+    margin-top: 50px;
+}
+
+nav#nav-pag {
+    margin-top: 50px;
+}
+
+a#link-u {
+    margin-left: 100px;
+}
+
+a#link-d {
+    margin-left: 100px;
+}

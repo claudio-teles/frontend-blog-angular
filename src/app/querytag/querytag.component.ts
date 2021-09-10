@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { QuerytagService } from './querytag.service';
 
 @Component({
   selector: 'app-querytag',
@@ -8,63 +9,32 @@ import { Router } from '@angular/router';
 })
 export class QuerytagComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  url = "http://localhost:8080/new/tag";
+  tag = "";
+  tags = "";
+  listTags = [];
+  news = [];
 
-  news = [
-    {
-      authorName: {
-        authorsName: "authorsName 1",
-        gender: "MALE",
-        idAuthor: 1
-      },
-      comments: [
-        {
-          author: {
-            authorsName: "Reader 1",
-            gender: "FEMALE",
-            idAuthor: 1
-          },
-          content: "Comment 1",
-          date: "2021-09-04T17:33:47.026Z",
-          idComment: 1
-        },
-        {
-          author: {
-            authorsName: "Reader 2",
-            gender: "MALE",
-            idAuthor: 2
-          },
-          content: "Comment 2",
-          date: "2021-09-04T17:33:47.026Z",
-          idComment: 2
-        }
-      ],
-      content: "Content 1",
-      dateTime: "2021-09-04T17:33:47.026Z",
-      idNew: 1,
-      tags: [
-        {
-          idTag: 1,
-          value: "Tag 1"
-        },
-        {
-          idTag: 2,
-          value: "Tag 2"
-        },
-        {
-          idTag: 3,
-          value: "Tag 3"
-        }
-      ],
-      title: "Title 1"
-    }
-  ]
+  constructor(public router: Router, private queryTag: QuerytagService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  addTag() {
+    this.listTags.push(this.tag);
+    this.tag = "";
   }
 
-  onSubmit(): void {
-    
+  search() {
+    for (let i = 0; i < this.listTags.length; i++) {
+      this.tags += (this.listTags[i] + ",")
+    }
+
+    this.queryTag.searchTag(this.url, this.tags).subscribe(
+      response => {
+        this.news = response;
+        console.log(this.news);
+      }
+    );
   }
 
 }

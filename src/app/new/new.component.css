@@ -1,0 +1,23 @@
+h1#titulo {
+    margin-top: 20px;
+}
+
+h3#autor {
+    margin-top: 20px;
+}
+
+h3#data {
+    margin-top: 20px;
+}
+
+h2#conteudo {
+    margin-top: 20px;
+}
+
+h3#comentario {
+    margin-top: 20px;
+}
+
+li {
+    list-style-type: none;
+}

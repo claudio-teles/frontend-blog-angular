@@ -1,10 +1,35 @@
-<h1>postviewing works!</h1>
+<div class="container">
+  <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
 
-<ul>
-    <li *ngFor="let new of news;">
-        <h2>Conteúdo:</h2>
-        {{new.content}}
-    </li>
-</ul>
+          <div class="list-group">
+              <a href="#" *ngFor="let _new of news;" class="list-group-item list-group-item-action" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                  <h1 class="mb-1">Titulo: {{_new.title}}</h1>
+                </div>
+                <p class="mb-1">Conteúdo: {{_new.content}}</p>
+                <a href="/new/{{_new.idNew}}" id="link-v">Visualizar Página Por Completo</a>
+                <a href="/new/{{_new.idNew}}/update" id="link-u">Atualizar Noticia</a>
+                <a href="/new/{{_new.idNew}}/delete" id="link-d">Deletar</a>
+              </a>
+            </div>
+          
+          <div id="inf-pag">
+              <h3>Página: {{start + 1}} De Até {{quantityOfItens}} Notícias Por Página</h3>
+          </div>
+          
+          <nav aria-label="Page navigation" id="nav-pag">
+              <ul class="pagination">
+                <li class="page-item"><a class="page-link" (click)="goBack()">Página Anterior</a></li>
+                <li class="page-item"><a class="page-link" (click)="advanced()">Próxima Página</a></li>
+              </ul>
+          </nav>
+
+      </div>
+      <div class="col-2"></div>
+  </div>
+</div>
+
 
 <router-outlet></router-outlet>

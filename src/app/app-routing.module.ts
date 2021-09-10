@@ -8,6 +8,7 @@ import { PostnewsComponent } from './postnews/postnews.component';
 import { SearchtytleComponent } from './searchtytle/searchtytle.component';
 import { QuerytagComponent } from './querytag/querytag.component';
 import { NewsupdateComponent } from './newsupdate/newsupdate.component';
+import { DeletenewComponent } from './deletenew/deletenew.component';
 
 export const routes: Routes = [
   {path: 'new', component: PostnewsComponent},
@@ -15,7 +16,8 @@ export const routes: Routes = [
   {path: 'new/title', component: SearchtytleComponent},
   {path: 'new/tag', component: QuerytagComponent},
   {path: 'new/:idNew', component: NewComponent},
-  {path: 'new/:idNew/edit', component: NewsupdateComponent},
+  {path: 'new/:idNew/update', component: NewsupdateComponent},
+  {path: 'new/:idNew/delete', component: DeletenewComponent},
   {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 

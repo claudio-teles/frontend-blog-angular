@@ -1,18 +1,24 @@
-<h1>navbar works!</h1>
-<ul>
-    <li>
-        <h1 [routerLink]="['/']" routerLinkActive="router-link-active" >Home</h1>
-    </li>
-    <li>
-        <h1 [routerLink]="['/new']">Postagem</h1>
-    </li>
-    <li>
-        <h1 [routerLink]="['/new/pages']">Noticias</h1>
-    </li>
-    <li>
-        <h1 [routerLink]="['/new/title']">Pesquisa Por Título</h1>
-    </li>
-    <li>
-        <h1 [routerLink]="['/new/tag']">Pesquisa Por Tags</h1>
-    </li>
-</ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a href="/" class="nav-link active" aria-current="page">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="/new" class="nav-link">Postagem</a>
+            </li>
+            <li class="nav-item">
+                <a href="/new/pages" class="nav-link">Noticias</a>
+            </li>
+            <li class="nav-item">
+                <a href="/new/title" class="nav-link">Pesquisa Por Título</a>
+            </li>
+            <li class="nav-item">
+                <a href="/new/tag" class="nav-link">Pesquisa Por Tags</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+

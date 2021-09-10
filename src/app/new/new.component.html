@@ -1,37 +1,61 @@
-<h1>new works!</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
 
-<h1 >{{new.title}}</h1>
-{{new.authorName.authorsName}}
-{{new.dateTime}}
+            <h1>Visualizar Noticia</h1>
 
-<ul>
-    <li *ngFor="let tag of new.tags">
-        {{tag.value}} 
-    </li>
-</ul>
-<h2>Conteúdo:</h2>
-{{new.content}}
+            <h1 id="titulo">{{new.title}}</h1>
+            <h3 id="autor">{{new.authorName.authorsName}}</h3>
+            <h3 id="data">{{new.dateTime}}</h3>
+            
+            <ul class="list-group">
+                <li *ngFor="let tag of new.tags" class="list-group-item d-flex justify-content-between align-items-center">
+                    <span class="badge bg-primary rounded-pill">{{tag.value}}</span> 
+                </li>
+            </ul>
+            
+            <h2 id="conteudo">Conteúdo:</h2>
+            <p>{{new.content}}</p>
+            
+            <datalist id="genders">
+                <option value="MALE">
+                <option value="FEMALE">
+            </datalist>
+            
+            <h2>Adicione Seu Comentário</h2>
+            
+            <div class="mb-3">
+                <label for="ln" class="form-label">Nome: </label> <br>
+                <input type="text" [(ngModel)]="comment.author.authorsName" class="form-control"> <br>
+            </div>
+            
+            <div class="mb-3">
+                <label for="gn" class="form-label">Genêro : </label> <br>
+                <input list="genders" name="gender" id="gender" [(ngModel)]="comment.author.gender" class="form-control"> <br>    
+            </div>
+            
+            <div class="mb-3">
+                <label for="lc" class="form-label">Comentário: </label> <br>
+                <textarea name="txtac1" id="idtxtac" cols="30" rows="10" [(ngModel)]="comment.content" class="form-control"></textarea> <br>
+            </div>
+            
+            <button (click)="addComments()" class="btn btn-primary">Adicionar Comentário</button> <br>
+            
+            <h3 id="comentario">Comentário:</h3>
+            
+            <ul class="list-group">
+                <li *ngFor="let comment of commentsNew;">
+                    <h5 class="badge bg-primary rounded-pill">{{comment.author.authorsName}}</h5> <br>
+                    <h5 class="badge bg-primary rounded-pill">{{comment.author.gender}}</h5> <br>
+                    <h5 class="badge bg-primary rounded-pill">{{comment.date| date: 'dd/MM/yyyy:mm:ss'}}</h5> <br>
+                    <h5>{{comment.content}}</h5> <br>
+                </li>
+            </ul>
 
-<h2>Adicione Seu Comentário</h2>
-
-<form action="">
-    <label for="ln">Nome: </label> <input type="text"> <br>
-    <label for="lg1">Genêro Masculino: </label> <input type="radio" name="n1" id="id1">
-    <label for="lg2">Genêro Feminino: </label> <input type="radio" name="n2" id="id2"> <br>
-    <label for="lc">Comentário: </label> <input type="text"> <br>
-</form>
-
-<input type="button" value="Comentar"> <br>
-
-Comentários
-
-<ul>
-    <li *ngFor="let comment of new.comments;">
-        {{comment.author.authorsName}} |
-        {{comment.author.gender}} |
-        {{comment.date| date: 'dd/MM/yyyy:mm:ss'}} <br>
-        {{comment.content}} <br>
-    </li>
-</ul>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
 
 <router-outlet></router-outlet>

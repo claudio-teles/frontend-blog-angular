@@ -5,16 +5,16 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class NewsupdateService {
+export class DeletenewService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getNew(url: String): Observable<Object> {
+  loadNewId(url: String): Observable<Object> {
     return this.httpClient.get<Object>(url.toString());
   }
 
-  updateNew(url: String, _new: Object): Observable<Object> {
-    return this.httpClient.put<Object>(url.toString(), _new);
+  deleteNewId(url: String): Observable<any> {
+    return this.httpClient.delete<any>(url.toString());
   }
 
 }

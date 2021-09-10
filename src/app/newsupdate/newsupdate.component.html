@@ -1,13 +1,37 @@
-<p>newsupdate works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            Atualizar Noticia
+            <label for="ltgs">Tags Escolhidas: </label>
 
-<label for="title">Título: </label> <input type="text" [(ngModel)]="new.title"> <br>
+            <ul class="list-group">
+                <li *ngFor="let tag of tagList" class="list-group-item d-flex justify-content-between align-items-center">
+                    <span class="badge bg-primary rounded-pill">{{tag}}</span>
+                </li>
+            </ul>
+            
+            <div class="mb-3">
+                <label for="title" class="form-label">Título: </label> 
+                <input type="text" [(ngModel)]="new.title" class="form-control">
+            </div>
+        
+            <div class="mb-3">
+                <label for="t" class="form-label">Tags: </label> 
+                <input type="text" [(ngModel)]="tag" class="form-control"> <br>
+                <button type="submit" (click)="addTag()" class="btn btn-primary">Incluir Tag</button>
+            </div>
+        
+            <div class="mb-3">
+                <label for="cnt" class="form-label">Conteúdo: </label>
+                <textarea name="ntxt" id="idt" cols="30" rows="10" [(ngModel)]="new.content" class="form-control"></textarea>
+            </div>
+        
+            <button type="submit" (click)="onSubmit()" class="btn btn-primary">Atualizar Noticia</button>
 
-<label for="t">Tags: </label> <input type="text" [(ngModel)]="tag"> <br>
-
-<input type="button" value="Incluir Tag" (click)="addTag()"> <br>
-
-<label for="cnt">Conteúdo: </label> <input [(ngModel)]="new.content" type="text"> <br>
-
-<button type="submit" (click)="onSubmit()">Postar Noticia</button>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
 
 <router-outlet></router-outlet>

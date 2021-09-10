@@ -1,10 +1,42 @@
-<a>querytag works!</a>
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
 
-<ul>
-    <li *ngFor="let new of news;">
-        <h2>Conteúdo:</h2>
-        {{new.content}}
-    </li>
-</ul>
+            <h1>Pesquisa Por Tag</h1> <br>
+
+            <label for="lt1">Tags Selecionadas: </label>
+            
+            <ul class="list-group">
+                <li *ngFor="let tag of listTags" class="list-group-item d-flex justify-content-between align-items-center">
+                    <span class="badge bg-primary rounded-pill">{{tag}}</span>
+                </li>
+            </ul>
+            
+            <div class="mb-3">
+                <label id="lbl-t-inc" for="ltag" class="form-label">Inclua As Tags No Campo Aseguir: </label> 
+                <input type="text" [(ngModel)]="tag" class="form-control"> 
+                <button id="add-tag" (click)="addTag()" class="btn btn-primary">Adicionar Tag</button> <br>
+                <button id="pesquisar" (click)="search()" class="btn btn-primary">Pesquisar</button>
+            </div>
+            
+            <h2>Itens Resumidos</h2>
+            
+            <ul class="list-group">
+                <li *ngFor="let new of news;" class="list-group-item d-flex justify-content-between align-items-center">
+                    Titulo: {{new.title}} <br>
+                    Conteúdo: {{new.content}} <br>
+                    <ul class="list-group">
+                        <li *ngFor="let tag of new.tags"  class="list-group-item d-flex justify-content-between align-items-center">
+                            <span class="badge bg-primary rounded-pill">Tag: {{tag.value}}</span>                            
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
 
 <router-outlet></router-outlet>

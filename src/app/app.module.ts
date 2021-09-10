@@ -13,7 +13,7 @@ import { QuerytagComponent } from './querytag/querytag.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { NewsupdateComponent } from './newsupdate/newsupdate.component';
-import { ContentresumeComponent } from './contentresume/contentresume.component';
+import { DeletenewComponent } from './deletenew/deletenew.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { ContentresumeComponent } from './contentresume/contentresume.component'
     SearchtytleComponent,
     QuerytagComponent,
     NewsupdateComponent,
-    ContentresumeComponent
+    DeletenewComponent
   ],
   imports: [
     BrowserModule,

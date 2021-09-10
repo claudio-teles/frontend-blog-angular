@@ -1,10 +1,33 @@
-<h1>searchtytle works!</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
 
-<ul>
-    <li *ngFor="let new of news;">
-        <h2>Conteúdo:</h2>
-        {{new.content}}
-    </li>
-</ul>
+            <h1>Pesquisar Por Título</h1>
+
+            <div class="mb-3">
+                <label for="lt" class="form-label">Pesquisar Notícia Por Título Parecido Com o Valor Indicado Aseguir: </label> <br>
+                <input type="text" [(ngModel)]="title"class="form-control"> <br>
+                <button (click)="search()" class="btn btn-primary">Pesquisar</button>
+            </div>
+            
+            <h2>Itens Resumidos</h2>
+            
+            <div class="list-group">
+                <a href="" *ngFor="let new of news;" class="list-group-item list-group-item-action" aria-current="true">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h1 class="mb-1">{{new.title}}</h1>
+                    </div>
+                    <p class="mb-1">Conteúdo: {{new.content}}</p>
+                    <a href="/new/{{new.idNew}}" id="link-v">Visualizar Página Por Completo</a>
+                    <a href="/new/{{new.idNew}}/update" id="link-u">Atualizar Noticia</a>
+                    <a href="" id="link-d">Deletar Noticia</a>
+                </a>
+            </div>
+
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
 
 <router-outlet></router-outlet>
