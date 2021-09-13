@@ -7,7 +7,7 @@
 
             <h1 id="titulo">{{new.title}}</h1>
             <h3 id="autor">{{new.authorName.authorsName}}</h3>
-            <h3 id="data">{{new.dateTime}}</h3>
+            <h3 id="data">{{new.dateTime | date: 'dd/MM/yyyy:mm:ss'}}</h3>
             
             <ul class="list-group">
                 <li *ngFor="let tag of new.tags" class="list-group-item d-flex justify-content-between align-items-center">
@@ -48,7 +48,7 @@
                 <li *ngFor="let comment of commentsNew;">
                     <h5 class="badge bg-primary rounded-pill">{{comment.author.authorsName}}</h5> <br>
                     <h5 class="badge bg-primary rounded-pill">{{comment.author.gender}}</h5> <br>
-                    <h5 class="badge bg-primary rounded-pill">{{comment.date| date: 'dd/MM/yyyy:mm:ss'}}</h5> <br>
+                    <h5 class="badge bg-primary rounded-pill">{{comment.date | date: 'dd/MM/yyyy:mm:ss'}}</h5> <br>
                     <h5>{{comment.content}}</h5> <br>
                 </li>
             </ul>
